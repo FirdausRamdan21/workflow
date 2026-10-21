@@ -172,7 +172,7 @@ const fetchTasks = async () => {
     tasks.value = data.data
   } catch (error) {
     console.error('Failed to load tasks:', error)
-    errorMessage.value = 'Daftar tugas gagal dimuat. Periksa koneksi ke server lalu coba lagi.'
+    errorMessage.value = 'Daftar tugas gagal dimuat. Muat ulang halaman lalu coba lagi.'
   } finally {
     loading.value = false
   }
@@ -188,7 +188,7 @@ const createTask = async () => {
     await fetchTasks()
   } catch (error) {
     console.error('Failed to create task:', error)
-    formError.value = error.response?.data?.message ?? 'Tugas gagal disimpan. Periksa koneksi ke server dan coba lagi.'
+    formError.value = 'Tugas gagal disimpan. Periksa kembali isian lalu coba lagi.'
   } finally {
     saving.value = false
   }
@@ -212,7 +212,7 @@ const deleteTask = async (id) => {
     await fetchTasks()
   } catch (error) {
     console.error('Failed to delete task:', error)
-    noticeMessage.value = 'Tugas gagal dihapus. Periksa koneksi ke server lalu coba lagi.'
+    noticeMessage.value = 'Tugas gagal dihapus. Muat ulang halaman lalu coba lagi.'
   }
 }
 
